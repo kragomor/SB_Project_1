@@ -1,13 +1,15 @@
 ﻿#include <iostream>
-#include "Helpers.h"
+//#include "Helpers.h"
+using namespace std;
 
 
 int main()
 {
-    int result = sum(2, 4);
 
+   string a = "Hello Tutor";
+   cout << a << "\n";
+   cout << a.size() << "\n";
+   cout << a.front() << a.back() << "\n";
 
-
-    std::cout <<  result;
 }
 
