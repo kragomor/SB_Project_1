@@ -1,32 +1,44 @@
 ﻿#include <iostream>
-#include <ctime>
-
 using namespace std;
+
+class vector
+{
+public:
+	vector()
+	{}
+		
+	int getlenghtx() // не понял, что значит возвращать длинну, если длинна по двум точкам, можно и Y вернуть.
+	{
+		return x;
+	}
+	void setlenghtx(int valuex)
+	{
+		x = valuex;
+	}
+	void setlenghty(int valuey)
+	{
+		y = valuey;
+	}
+	void setlenghtz(int valuez)
+	{
+		z = valuez;
+	}
+	void print()
+	{
+		cout << x << y << z;
+	}
+private:
+	int x;
+	int y;
+	int z;
+};
 
 int main()
 {
-	struct tm newtime;
-	time_t now = time(0);
-	localtime_s(&newtime, &now);
-	int Day = newtime.tm_mday;
-	
-	const int N = 5;
-	int array[N][N]; 
-	
-	for (int i = 0; i < N; i++) 
-	{
-		for (int j = 0; j < N; j++) 
-		{
-			array[i][j] = i + j;
-			cout << array[i][j];
-		}
-		cout << endl;
+	vector v;
+	v.setlenghtx(1);
+	v.setlenghty(2);
+	v.setlenghtz(3);
+	v.print();
 
-	}
-
-	int i = (Day % N) + 1;
-	int sum = array[i][0] + array[i][1] + array[i][2] + array[i][3] + array[i][4];
-	
-	cout << Day << endl;
-	cout << sum << endl;
 }	
