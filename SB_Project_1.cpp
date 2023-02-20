@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <cmath>
 using namespace std;
 
 class vector
@@ -25,7 +26,9 @@ public:
 	}
 	void print()
 	{
-		cout << x << y << z;
+		double h = sqrt(x * x + y * y + z * z);
+		cout << h << endl;
+
 	}
 private:
 	int x;
@@ -36,8 +39,8 @@ private:
 int main()
 {
 	vector v;
-	v.setlenghtx(1);
-	v.setlenghty(2);
+	v.setlenghtx(3);
+	v.setlenghty(5);
 	v.setlenghtz(3);
 	v.print();
 
