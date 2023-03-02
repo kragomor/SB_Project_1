@@ -1,47 +1,86 @@
 ﻿#include <iostream>
-#include <cmath>
+#include <string>
 using namespace std;
 
-class vector
+
+class player 
 {
+private:
+	string name;
+	int score;
+
 public:
-	vector()
-	{}
-		
-	int getlenghtx() // не понял, что значит возвращать длинну, если длинна по двум точкам, можно и Y вернуть.
+
+	void Setname(string valuename)
 	{
-		return x;
+		name = valuename;
 	}
-	void setlenghtx(int valuex)
+
+	void Setscore (int valuescore)
 	{
-		x = valuex;
+		score = valuescore;
 	}
-	void setlenghty(int valuey)
-	{
-		y = valuey;
-	}
-	void setlenghtz(int valuez)
-	{
-		z = valuez;
-	}
+
 	void print()
 	{
-		double h = sqrt(x * x + y * y + z * z);
-		cout << h << endl;
+		cout << "Имя игрока -" << name << "\t" << " Очки игрока -" << score << endl;
 
 	}
-private:
-	int x;
-	int y;
-	int z;
+
 };
 
 int main()
 {
-	vector v;
-	v.setlenghtx(3);
-	v.setlenghty(5);
-	v.setlenghtz(3);
-	v.print();
+	setlocale(LC_ALL, "ru");
+
+	int N;
+	cout << "Введите количество игроков -" << endl;
+	cin >> N;
+
+	int rows = N;
+	int cols = 1;
+	string name;
+	int score;
+
+	int** arr = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols];
+		
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < rows; j++)
+		{
+			cout << "Введите имя игрока -" << endl;
+			cin >> name;
+			arr[i] = name;
+
+			cout << "Введите количество очков -" << endl;
+			cin >> score;
+			arr[j] = score;
+			
+			//// - далее надо выбрать сортировку, из приложеннй статьи, не понял какую нужно взять мне, они все сортируют значения слева на право, а мне надо сверху вниз и чтбы ещё имена подтягивало.
+
+
+		}
+		
+	}
+
+
+	for (int i = 0; i <= rows; i++)
+	{
+		delete[] arr[i];
+	}
+		delete [] arr;
+	
+		
+		
+		
+    /*player first;
+	first.Setname(.....);
+	first.Setscore(.....);*/
+	
+	
 
 }	
