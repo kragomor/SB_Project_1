@@ -31,7 +31,6 @@ public:
 		p2 = temp;
 		
 	}
-
 	void bubbleSort(player arr[], int size)
 	{
 		for (int i = 0; i < size-1; i++)
@@ -40,7 +39,7 @@ public:
 			{
 				if (arr[j].score > arr[j+1].score)
 				{
-					swap(arr[j], arr[j=1]);
+					swap(arr[j], arr[j+1]);
 					
 				}
 			}
@@ -58,7 +57,6 @@ public:
 int main()
 {
 	setlocale(LC_ALL, "ru");
-
 	int size;
 	cout << "Введите количество игроков -" << endl;
 	cin >> size;
@@ -70,7 +68,7 @@ int main()
 		Array[x].Enter();
 
 	}
-	bubbleSort (player, size);
+	Array->bubbleSort (Array, size);
 
 	for (int x = 0; x < size; x++)
 	{
