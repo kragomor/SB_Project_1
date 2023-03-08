@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+//#include <bits/stdc++.h>
 using namespace std;
 
 
@@ -11,76 +12,76 @@ private:
 
 public:
 
-	void Setname(string valuename)
+	int Getscore()
 	{
-		name = valuename;
+		return score;
 	}
 
-	void Setscore (int valuescore)
+	void Enter ()
 	{
-		score = valuescore;
+		cout << "Введите имя игрока -" << endl;
+		cin >> name;
+		cout << "Введите количество очков -" << endl;
+		cin >> score;
+	}
+	void swap(player& p1, player& p2)
+	{
+		player temp = p1;
+		p1 = p2;
+		p2 = temp;
+		
 	}
 
+	void bubbleSort(player arr[], int size)
+	{
+		for (int i = 0; i < size-1; i++)
+		{
+			for (int j = 0; j < size-i-1 ; j++)
+			{
+				if (arr[j].score > arr[j+1].score)
+				{
+					swap(arr[j], arr[j=1]);
+					
+				}
+			}
+			
+		}
+	}
 	void print()
 	{
-		cout << "Имя игрока -" << name << "\t" << " Очки игрока -" << score << endl;
+		cout << "Имя игрока - " << name << "\t" << "Очки игрока -" << score << endl;
 
 	}
-
+			
 };
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 
-	int N;
+	int size;
 	cout << "Введите количество игроков -" << endl;
-	cin >> N;
+	cin >> size;
 
-	int rows = N;
-	int cols = 1;
-	string name;
-	int score;
+	player* Array = new player[size];
 
-	int** arr = new int* [rows];
-	for (int i = 0; i < rows; i++)
+	for (int x = 0; x < size; x++)
 	{
-		arr[i] = new int[cols];
-		
+		Array[x].Enter();
+
 	}
-	for (int i = 0; i < rows; i++)
+	bubbleSort (player, size);
+
+	for (int x = 0; x < size; x++)
 	{
-		for (int j = 0; j < rows; j++)
-		{
-			cout << "Введите имя игрока -" << endl;
-			cin >> name;
-			arr[i] = name;
+		Array[x].print();
 
-			cout << "Введите количество очков -" << endl;
-			cin >> score;
-			arr[j] = score;
-			
-			//// - далее надо выбрать сортировку, из приложеннй статьи, не понял какую нужно взять мне, они все сортируют значения слева на право, а мне надо сверху вниз и чтбы ещё имена подтягивало.
-
-
-		}
-		
 	}
-
-
-	for (int i = 0; i <= rows; i++)
+	/*for (int x = 0; x < size; x++)
 	{
-		delete[] arr[i];
-	}
-		delete [] arr;
-	
-		
-		
-		
-    /*player first;
-	first.Setname(.....);
-	first.Setscore(.....);*/
-	
-	
+		delete Array[x];
+	}*/
+	delete[] Array;
 
-}	
+}
+
