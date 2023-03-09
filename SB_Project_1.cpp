@@ -6,11 +6,13 @@ using namespace std;
 
 class player 
 {
-private:
-	string name;
-	int score;
+//private:
+//	string name;
+//	int score;
 
 public:
+	string name;
+	int score;
 
 	int Getscore()
 	{
@@ -24,28 +26,7 @@ public:
 		cout << "Введите количество очков -" << endl;
 		cin >> score;
 	}
-	void swap(player& p1, player& p2)
-	{
-		player temp = p1;
-		p1 = p2;
-		p2 = temp;
-		
-	}
-	void bubbleSort(player arr[], int size)
-	{
-		for (int i = 0; i < size-1; i++)
-		{
-			for (int j = 0; j < size-i-1 ; j++)
-			{
-				if (arr[j].score > arr[j+1].score)
-				{
-					swap(arr[j], arr[j+1]);
-					
-				}
-			}
-			
-		}
-	}
+	
 	void print()
 	{
 		cout << "Имя игрока - " << name << "\t" << "Очки игрока -" << score << endl;
@@ -53,6 +34,30 @@ public:
 	}
 			
 };
+
+
+void swap(player& p1, player& p2)
+{
+	player temp = p1;
+	p1 = p2;
+	p2 = temp;
+
+}
+void bubbleSort(player arr[], int size)
+{
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = 0; j < size - i - 1; j++)
+		{
+			if (arr[j].score > arr[j + 1].score)
+			{
+				swap(arr[j], arr[j + 1]);
+
+			}
+		}
+
+	}
+}
 
 int main()
 {
@@ -68,17 +73,14 @@ int main()
 		Array[x].Enter();
 
 	}
-	Array->bubbleSort (Array, size);
-
+	bubbleSort (Array, size);
+	
 	for (int x = 0; x < size; x++)
 	{
 		Array[x].print();
 
 	}
-	/*for (int x = 0; x < size; x++)
-	{
-		delete Array[x];
-	}*/
+	
 	delete[] Array;
 
 }
